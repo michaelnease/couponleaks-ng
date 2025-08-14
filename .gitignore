@@ -1,50 +1,84 @@
-# See https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+# ----------------------------------
+# Node.js / Nx / Next.js
+# ----------------------------------
+node_modules/
+dist/
+.next/
+out/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnp.*
+.pnp.js
+.pnp.cjs
+.cache/
+.eslintcache
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-# compiled output
-dist
-tmp
-out-tsc
-
-# dependencies
-node_modules
-
-# IDEs and editors
-/.idea
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
-
-# IDE - VSCode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-
-# misc
-/.sass-cache
-/connect.lock
-/coverage
-/libpeerconnection.log
-npm-debug.log
-yarn-error.log
-testem.log
-/typings
-
-# System Files
-.DS_Store
-Thumbs.db
-
+# Nx
 .nx/cache
 .nx/workspace-data
-.cursor/rules/nx-rules.mdc
-.github/instructions/nx.instructions.md
+tmp/
 
-# Next.js
-.next
-out
+# ----------------------------------
+# Python Lambdas
+# ----------------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pkl
+*.egg-info/
+*.egg
+.Python
+pip-wheel-metadata/
+venv/
+env/
+ENV/
+.venv/
 
-test-output
+# Lambda zips
+lambda.zip
+*.zip
+
+# ----------------------------------
+# AWS CDK / Amplify
+# ----------------------------------
+cdk.out/
+amplify/#current-cloud-backend
+amplify/backend/amplify-meta.json
+amplify/backend/awscloudformation/
+amplify/.config/local-*
+team-provider-info.json
+
+# ----------------------------------
+# Local Development
+# ----------------------------------
+*.local
+*.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# ----------------------------------
+# Test / Coverage
+# ----------------------------------
+coverage/
+*.lcov
+.jest/
+playwright-report/
+test-results/
+cypress/videos/
+cypress/screenshots/
+
+# ----------------------------------
+# OS / Misc
+# ----------------------------------
+.DS_Store
+Thumbs.db
