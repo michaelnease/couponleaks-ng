@@ -39,8 +39,10 @@
     "@types/react": "19.0.0",
     "@types/react-dom": "19.0.0",
     "autoprefixer": "10.4.13",
+    "aws-cdk-lib": "^2.211.0",
     "babel-jest": "^30.0.2",
     "concurrently": "^9.2.0",
+    "constructs": "^10.4.2",
     "eslint": "^9.8.0",
     "eslint-config-next": "^15.2.4",
     "eslint-config-prettier": "^10.0.0",
@@ -52,6 +54,7 @@
     "jest": "^30.0.2",
     "jest-environment-jsdom": "^30.0.2",
     "jest-util": "^30.0.2",
+    "jsonc-eslint-parser": "^2.1.0",
     "nx": "21.3.11",
     "postcss": "8.4.38",
     "prettier": "^2.6.2",
@@ -63,6 +66,7 @@
     "typescript-eslint": "^8.29.0"
   },
   "workspaces": [
-    "apps/*"
+    "apps/*",
+    "packages"
   ]
 }

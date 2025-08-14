@@ -20,6 +20,9 @@
     },
     {
       "path": "./apps/cplks-ui"
+    },
+    {
+      "path": "./packages"
     }
   ]
 }

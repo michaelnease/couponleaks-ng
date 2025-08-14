@@ -1,0 +1,21 @@
+{
+  "version": "48.0.0",
+  "files": {
+    "0262934f7bf7f034b3b54fc867efb279ed88402d4318860fe286ebc1beb1fbc8": {
+      "displayName": "CouponLeaks-AppSync-dev Template",
+      "source": {
+        "path": "CouponLeaks-AppSync-dev.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "111111111111-us-east-1-c2f5744c": {
+          "bucketName": "cdk-hnb659fds-assets-111111111111-us-east-1",
+          "objectKey": "0262934f7bf7f034b3b54fc867efb279ed88402d4318860fe286ebc1beb1fbc8.json",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::111111111111:role/cdk-hnb659fds-file-publishing-role-111111111111-us-east-1"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

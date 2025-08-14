@@ -1,0 +1,36 @@
+{
+  "version": "48.0.0",
+  "files": {
+    "7a83930eb1c33f3985a008024868c53772d621d10342adbfda1562cbb578bc79": {
+      "displayName": "ProfilesFunction/Code",
+      "source": {
+        "path": "asset.7a83930eb1c33f3985a008024868c53772d621d10342adbfda1562cbb578bc79",
+        "packaging": "zip"
+      },
+      "destinations": {
+        "111111111111-us-east-1-c835cfbf": {
+          "bucketName": "cdk-hnb659fds-assets-111111111111-us-east-1",
+          "objectKey": "7a83930eb1c33f3985a008024868c53772d621d10342adbfda1562cbb578bc79.zip",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::111111111111:role/cdk-hnb659fds-file-publishing-role-111111111111-us-east-1"
+        }
+      }
+    },
+    "339cb9300fd905cf21cf5709600b77a4cd07fc3ca31ac6bae55593f878ecaddb": {
+      "displayName": "CouponLeaks-Functions-dev Template",
+      "source": {
+        "path": "CouponLeaks-Functions-dev.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "111111111111-us-east-1-99aceeab": {
+          "bucketName": "cdk-hnb659fds-assets-111111111111-us-east-1",
+          "objectKey": "339cb9300fd905cf21cf5709600b77a4cd07fc3ca31ac6bae55593f878ecaddb.json",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::111111111111:role/cdk-hnb659fds-file-publishing-role-111111111111-us-east-1"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}
