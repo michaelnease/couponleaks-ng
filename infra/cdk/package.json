@@ -4,12 +4,16 @@
   "type": "module",
   "scripts": {
     "build": "tsc -p tsconfig.json",
+    "cdk": "cdk",
     "synth:dev": "cdk synth -c env=dev",
     "synth:staging": "cdk synth -c env=staging",
     "synth:prod": "cdk synth -c env=prod",
     "deploy:dev": "cdk deploy --all -c env=dev --require-approval never",
     "deploy:staging": "cdk deploy --all -c env=staging --require-approval never",
-    "deploy:prod": "cdk deploy --all -c env=prod"
+    "deploy:prod": "cdk deploy --all -c env=prod",
+    "destroy:dev": "cdk destroy --all -c env=dev --force",
+    "destroy:staging": "cdk destroy --all -c env=staging --force",
+    "destroy:prod": "cdk destroy --all -c env=prod --force"
   },
   "dependencies": {
     "aws-cdk-lib": "^2.211.0",

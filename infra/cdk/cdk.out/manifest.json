@@ -11,7 +11,7 @@
     },
     "CouponLeaks-Foundation-dev": {
       "type": "aws:cloudformation:stack",
-      "environment": "aws://111111111111/us-east-1",
+      "environment": "aws://883273260741/us-east-1",
       "properties": {
         "templateFile": "CouponLeaks-Foundation-dev.template.json",
         "terminationProtection": false,
@@ -20,16 +20,16 @@
           "env": "dev"
         },
         "validateOnSynth": false,
-        "assumeRoleArn": "arn:${AWS::Partition}:iam::111111111111:role/cdk-hnb659fds-deploy-role-111111111111-us-east-1",
-        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::111111111111:role/cdk-hnb659fds-cfn-exec-role-111111111111-us-east-1",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-111111111111-us-east-1/a67b1080c22f3923245a551dcfb6100eb2c8a3668dc4e0fce7459c437c005518.json",
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::883273260741:role/cdk-hnb659fds-deploy-role-883273260741-us-east-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::883273260741:role/cdk-hnb659fds-cfn-exec-role-883273260741-us-east-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-883273260741-us-east-1/8e69d02b44711d5ebbf7bbf3ad7e3cc02a44d18714f2b835f4f4e36140780aec.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
           "CouponLeaks-Foundation-dev.assets"
         ],
         "lookupRole": {
-          "arn": "arn:${AWS::Partition}:iam::111111111111:role/cdk-hnb659fds-lookup-role-111111111111-us-east-1",
+          "arn": "arn:${AWS::Partition}:iam::883273260741:role/cdk-hnb659fds-lookup-role-883273260741-us-east-1",
           "requiresBootstrapStackVersion": 8,
           "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
         }
@@ -53,10 +53,28 @@
             ]
           }
         ],
+        "/CouponLeaks-Foundation-dev/UserPool/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "UserPool6BA7E5F2"
+          }
+        ],
+        "/CouponLeaks-Foundation-dev/UserPool/UserPoolClient/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "UserPoolUserPoolClient40176907"
+          }
+        ],
         "/CouponLeaks-Foundation-dev/CDKMetadata/Default": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CDKMetadata"
+          }
+        ],
+        "/CouponLeaks-Foundation-dev/Exports/Output{\"Ref\":\"UserPool6BA7E5F2\"}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputRefUserPool6BA7E5F296FD7236"
           }
         ],
         "/CouponLeaks-Foundation-dev/BootstrapVersion": [
@@ -84,7 +102,7 @@
     },
     "CouponLeaks-Functions-dev": {
       "type": "aws:cloudformation:stack",
-      "environment": "aws://111111111111/us-east-1",
+      "environment": "aws://883273260741/us-east-1",
       "properties": {
         "templateFile": "CouponLeaks-Functions-dev.template.json",
         "terminationProtection": false,
@@ -93,16 +111,16 @@
           "env": "dev"
         },
         "validateOnSynth": false,
-        "assumeRoleArn": "arn:${AWS::Partition}:iam::111111111111:role/cdk-hnb659fds-deploy-role-111111111111-us-east-1",
-        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::111111111111:role/cdk-hnb659fds-cfn-exec-role-111111111111-us-east-1",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-111111111111-us-east-1/339cb9300fd905cf21cf5709600b77a4cd07fc3ca31ac6bae55593f878ecaddb.json",
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::883273260741:role/cdk-hnb659fds-deploy-role-883273260741-us-east-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::883273260741:role/cdk-hnb659fds-cfn-exec-role-883273260741-us-east-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-883273260741-us-east-1/96d42b963f865e3769a52e22c6a6bef42f879326fe420c030a7a1f4cd24df7d8.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
           "CouponLeaks-Functions-dev.assets"
         ],
         "lookupRole": {
-          "arn": "arn:${AWS::Partition}:iam::111111111111:role/cdk-hnb659fds-lookup-role-111111111111-us-east-1",
+          "arn": "arn:${AWS::Partition}:iam::883273260741:role/cdk-hnb659fds-lookup-role-883273260741-us-east-1",
           "requiresBootstrapStackVersion": 8,
           "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
         }
@@ -127,22 +145,28 @@
             ]
           }
         ],
-        "/CouponLeaks-Functions-dev/ProfilesFunction/ServiceRole/Resource": [
+        "/CouponLeaks-Functions-dev/ProfilesLambda/ServiceRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "ProfilesFunctionServiceRoleC0548ACA"
+            "data": "ProfilesLambdaServiceRoleF60E2C07"
           }
         ],
-        "/CouponLeaks-Functions-dev/ProfilesFunction/Resource": [
+        "/CouponLeaks-Functions-dev/ProfilesLambda/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "ProfilesFunction2AA18660"
+            "data": "ProfilesLambda68F7E76E"
           }
         ],
         "/CouponLeaks-Functions-dev/CDKMetadata/Default": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CDKMetadata"
+          }
+        ],
+        "/CouponLeaks-Functions-dev/Exports/Output{\"Fn::GetAtt\":[\"ProfilesLambda68F7E76E\",\"Arn\"]}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputFnGetAttProfilesLambda68F7E76EArnE90DEED5"
           }
         ],
         "/CouponLeaks-Functions-dev/BootstrapVersion": [
@@ -170,7 +194,7 @@
     },
     "CouponLeaks-AppSync-dev": {
       "type": "aws:cloudformation:stack",
-      "environment": "aws://111111111111/us-east-1",
+      "environment": "aws://883273260741/us-east-1",
       "properties": {
         "templateFile": "CouponLeaks-AppSync-dev.template.json",
         "terminationProtection": false,
@@ -179,22 +203,23 @@
           "env": "dev"
         },
         "validateOnSynth": false,
-        "assumeRoleArn": "arn:${AWS::Partition}:iam::111111111111:role/cdk-hnb659fds-deploy-role-111111111111-us-east-1",
-        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::111111111111:role/cdk-hnb659fds-cfn-exec-role-111111111111-us-east-1",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-111111111111-us-east-1/0262934f7bf7f034b3b54fc867efb279ed88402d4318860fe286ebc1beb1fbc8.json",
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::883273260741:role/cdk-hnb659fds-deploy-role-883273260741-us-east-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::883273260741:role/cdk-hnb659fds-cfn-exec-role-883273260741-us-east-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-883273260741-us-east-1/7169b04f700997d17eb9c3e1eb36b46e2bf07e2c13430e9309f787676ccebed0.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
           "CouponLeaks-AppSync-dev.assets"
         ],
         "lookupRole": {
-          "arn": "arn:${AWS::Partition}:iam::111111111111:role/cdk-hnb659fds-lookup-role-111111111111-us-east-1",
+          "arn": "arn:${AWS::Partition}:iam::883273260741:role/cdk-hnb659fds-lookup-role-883273260741-us-east-1",
           "requiresBootstrapStackVersion": 8,
           "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
         }
       },
       "dependencies": [
         "CouponLeaks-Functions-dev",
+        "CouponLeaks-Foundation-dev",
         "CouponLeaks-AppSync-dev.assets"
       ],
       "metadata": {
@@ -211,6 +236,66 @@
                 "Value": "dev"
               }
             ]
+          }
+        ],
+        "/CouponLeaks-AppSync-dev/Api/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ApiF70053CD"
+          }
+        ],
+        "/CouponLeaks-AppSync-dev/Api/Schema": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ApiSchema510EECD7"
+          }
+        ],
+        "/CouponLeaks-AppSync-dev/Api/DefaultApiKey": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ApiDefaultApiKeyF991C37B"
+          }
+        ],
+        "/CouponLeaks-AppSync-dev/Api/ProfilesDS/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ApiProfilesDSServiceRole84F87DED"
+          }
+        ],
+        "/CouponLeaks-AppSync-dev/Api/ProfilesDS/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ApiProfilesDSServiceRoleDefaultPolicyE2B55F45"
+          }
+        ],
+        "/CouponLeaks-AppSync-dev/Api/ProfilesDS/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ApiProfilesDS44943956"
+          }
+        ],
+        "/CouponLeaks-AppSync-dev/Api/GetProfile/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ApiGetProfileD2736F8F"
+          }
+        ],
+        "/CouponLeaks-AppSync-dev/GraphqlUrl": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GraphqlUrl"
+          }
+        ],
+        "/CouponLeaks-AppSync-dev/ApiId": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ApiId"
+          }
+        ],
+        "/CouponLeaks-AppSync-dev/ApiKey": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ApiKey"
           }
         ],
         "/CouponLeaks-AppSync-dev/CDKMetadata/Default": [

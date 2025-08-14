@@ -18,15 +18,22 @@ const foundation = new FoundationStack(
   `CouponLeaks-Foundation-${cfg.name}`,
   { env, cfg }
 );
+
 const functions = new FunctionsStack(app, `CouponLeaks-Functions-${cfg.name}`, {
   env,
   cfg,
 });
+
 const api = new AppSyncStack(app, `CouponLeaks-AppSync-${cfg.name}`, {
   env,
   cfg,
+  functions: {
+    profiles: functions.profiles,
+  },
+  userPool: foundation.userPool,
 });
 
+// Ensure correct stack creation order
 api.addDependency(functions);
 functions.addDependency(foundation);
 
