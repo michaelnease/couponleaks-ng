@@ -1,0 +1,15 @@
+schema {
+  query: Query
+}
+
+type Query {
+  # Returns a profile by username; nullable when not found
+  getProfile(username: String!): Profile
+}
+
+type Profile {
+  username: String!
+  displayName: String
+  bio: String
+  website: String
+}
