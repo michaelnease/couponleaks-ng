@@ -8,6 +8,18 @@
     },
     {
       "path": "./apps/couponleaks-ui"
+    },
+    {
+      "path": "./apps/admin-ui-e2e"
+    },
+    {
+      "path": "./apps/admin-ui"
+    },
+    {
+      "path": "./apps/cplks-ui-e2e"
+    },
+    {
+      "path": "./apps/cplks-ui"
     }
   ]
 }

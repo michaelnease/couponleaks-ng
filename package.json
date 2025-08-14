@@ -2,7 +2,12 @@
   "name": "@couponleaks-ng/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "dev:couponleaks": "nx dev couponleaks-ui --port=3000",
+    "dev:admin": "nx dev admin-ui --port=3005",
+    "dev:cplks": "nx dev cplks-ui --port=3010",
+    "dev:all": "concurrently --names \"couponleaks,admin,cplks\" --prefix-colors \"blue,green,yellow\" \"npm run dev:couponleaks\" \"npm run dev:admin\" \"npm run dev:cplks\""
+  },
   "private": true,
   "dependencies": {
     "next": "~15.2.4",
@@ -35,6 +40,7 @@
     "@types/react-dom": "19.0.0",
     "autoprefixer": "10.4.13",
     "babel-jest": "^30.0.2",
+    "concurrently": "^9.2.0",
     "eslint": "^9.8.0",
     "eslint-config-next": "^15.2.4",
     "eslint-config-prettier": "^10.0.0",
