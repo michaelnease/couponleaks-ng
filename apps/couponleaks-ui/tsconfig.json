@@ -29,6 +29,8 @@
     "app/**/*.tsx",
     "providers/**/*.ts",
     "providers/**/*.tsx",
+    "components/**/*.ts",
+    "components/**/*.tsx",
     "next-env.d.ts",
     ".next/types/**/*.ts"
   ],
