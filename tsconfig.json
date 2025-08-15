@@ -23,6 +23,18 @@
     },
     {
       "path": "./packages"
+    },
+    {
+      "path": "./packages/graphql"
+    },
+    {
+      "path": "./packages/utils"
+    },
+    {
+      "path": "./packages/graphql"
+    },
+    {
+      "path": "./packages/utils"
     }
   ]
 }

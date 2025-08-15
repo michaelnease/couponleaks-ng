@@ -10,6 +10,8 @@
   },
   "private": true,
   "dependencies": {
+    "@apollo/client": "^3.13.9",
+    "aws-amplify": "^6.15.5",
     "next": "~15.2.4",
     "react": "19.0.0",
     "react-dom": "19.0.0"
@@ -67,6 +69,7 @@
   },
   "workspaces": [
     "apps/*",
-    "packages"
+    "packages",
+    "packages/*"
   ]
 }

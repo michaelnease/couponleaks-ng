@@ -30,7 +30,7 @@ export class AppSyncStack extends Stack {
 
     const schemaFsPath = path.join(
       __dirname,
-      '../../../packages/src/lib/graphql/schema.graphql'
+      '../../../packages/graphql/src/lib/schema.graphql'
     );
 
     const api = new appsync.GraphqlApi(this, 'Api', {
