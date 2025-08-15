@@ -1,4 +1,5 @@
-import Providers from '../providers';
+import { AmplifyRuntime } from '@/components/aws/AmplifyRuntime';
+import Providers from '@/providers';
 import { Header } from '@/components/header';
 import './global.css';
 
@@ -13,8 +14,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
+        <AmplifyRuntime />
         <Providers>
           <Header />
           {children}

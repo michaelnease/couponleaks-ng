@@ -1,0 +1,14 @@
+/* Color mode styles */
+:root {
+  color-scheme: light;
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+}
+
+/* Prevent flash of unstyled content during hydration */
+html {
+  visibility: visible;
+  opacity: 1;
+}
