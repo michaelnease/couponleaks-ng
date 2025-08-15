@@ -1,6 +1,11 @@
 'use client';
 
-import Link from 'next/link';
+import { Box, Container, HStack } from '@chakra-ui/react';
+import { Logo } from './logo';
+import { NotificationPopover } from './notificationPopover';
+import { SearchField } from './searchField';
+import { SearchPopover } from './searchPopover';
+import { UserMenu } from './user-menu';
 import { useEffect, useState } from 'react';
 import { fetchAuthSession, getCurrentUser, signOut } from 'aws-amplify/auth';
 
@@ -44,46 +49,20 @@ export function Header() {
   }
 
   return (
-    <header
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        gap: 12,
-        padding: '8px 12px',
-        borderBottom: '1px solid #eee',
-      }}
-    >
-      <Link href="/" style={{ fontWeight: 600, textDecoration: 'none' }}>
-        CouponLeaks
-      </Link>
-
-      {status === 'unknown' ? (
-        <span aria-busy="true">…</span>
-      ) : status === 'signed-in' ? (
-        <nav style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-          {username && (
-            <Link href={`/${encodeURIComponent(username)}`}>@{username}</Link>
-          )}
-          <Link href="/account">Account</Link>
-          <button
-            onClick={handleSignOut}
-            style={{
-              background: 'transparent',
-              border: '1px solid #ccc',
-              padding: '4px 8px',
-              cursor: 'pointer',
-            }}
-          >
-            Log out
-          </button>
-        </nav>
-      ) : (
-        <nav style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-          <Link href="/login">Log in</Link>
-          <Link href="/signup">Sign up</Link>
-        </nav>
-      )}
+    <header>
+      <Box borderBottomWidth="1px" bg="bg.panel">
+        <Container py={{ base: '3.5', md: '4' }}>
+          <HStack justify="space-between">
+            <Logo />
+            <SearchField hideBelow="md" />
+            <HStack gap={{ base: '2', md: '3' }}>
+              <SearchPopover hideFrom="md" />
+              <NotificationPopover />
+              <UserMenu />
+            </HStack>
+          </HStack>
+        </Container>
+      </Box>
     </header>
   );
 }
