@@ -19,7 +19,8 @@
     "customConditions": ["development"],
     "baseUrl": ".",
     "paths": {
-      "@couponleaks-ng/graphql": ["packages/graphql/src/index.ts"]
+      "@couponleaks-ng/graphql": ["packages/graphql/src/index.ts"],
+      "@couponleaks-ng/aws": ["packages/aws/src/index.ts"]
     }
   }
 }

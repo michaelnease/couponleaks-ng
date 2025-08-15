@@ -29,6 +29,9 @@
     },
     {
       "path": "./infra/cdk"
+    },
+    {
+      "path": "./packages/aws"
     }
   ]
 }
