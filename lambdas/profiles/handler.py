@@ -10,10 +10,10 @@ def handler(event, context):
             return None
         # Example: Allow both auth and unauth callers
         return {
-            "username": username,
-            "displayName": f"Display name for {username}",
-            "bio": "This is a sample bio.",
-            "website": "https://couponleaks.com"
+            "username": f"FROM SERVER: {username}",
+            "displayName": f"FROM SERVER: Display name for {username}",
+            "bio": "FROM SERVER: This is a sample bio.",
+            "website": "FROM SERVER: https://couponleaks.com"
         }
 
     return None

@@ -11,6 +11,8 @@ export function Profile({ username }: { username: string }) {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error loading profile</p>;
 
+  console.log({ data });
+
   return (
     <div>
       <h1>{data.getProfile.displayName}</h1>
