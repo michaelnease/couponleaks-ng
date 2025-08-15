@@ -1,16 +1,13 @@
-schema {
-  query: Query
-}
-
 type Query {
-  # Allow both signed-in users and public users
-  getProfile(username: String!): Profile @aws_cognito_user_pools @aws_api_key
+  # Both API key and Cognito can call this
+  getProfile(username: String!): Profile @aws_api_key @aws_cognito_user_pools
 }
 
-# Make the returned type readable by both auth modes
-type Profile @aws_cognito_user_pools @aws_api_key {
+type Profile @aws_api_key @aws_cognito_user_pools {
   username: String!
   displayName: String
   bio: String
   website: String
+  # Only Cognito can read this
+  secret: String @aws_cognito_user_pools
 }

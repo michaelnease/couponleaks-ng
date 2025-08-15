@@ -8,6 +8,8 @@ export function Profile({ username }: { username: string }) {
     variables: { username },
   });
 
+  console.log(error);
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error loading profile</p>;
 

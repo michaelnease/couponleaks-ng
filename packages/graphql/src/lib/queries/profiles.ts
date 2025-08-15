@@ -7,6 +7,7 @@ export const GET_PROFILE_BY_USERNAME = gql`
       displayName
       bio
       website
+      secret
     }
   }
 `;

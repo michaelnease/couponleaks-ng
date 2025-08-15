@@ -1,19 +1,18 @@
-import json
-
 def handler(event, context):
-    field_name = event.get("info", {}).get("fieldName")
-    arguments = event.get("arguments", {})
+    field = event.get("info", {}).get("fieldName")
+    args = event.get("arguments") or {}
 
-    if field_name == "getProfile":
-        username = arguments.get("username")
+    if field == "getProfile":
+        username = args.get("username")
         if not username:
             return None
-        # Example: Allow both auth and unauth callers
+
         return {
-            "username": f"FROM SERVER: {username}",
-            "displayName": f"FROM SERVER: Display name for {username}",
-            "bio": "FROM SERVER: This is a sample bio.",
-            "website": "FROM SERVER: https://couponleaks.com"
+            "username": f"{username}",
+            "displayName": f"Display name for {username}",
+            "bio": "This is a sample bio.",
+            "website": "https://couponleaks.com",
+            "secret": "Top secret for signed-in users only",
         }
 
     return None
