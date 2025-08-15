@@ -2,10 +2,14 @@
 
 import {
   makeStore,
-  createAuthSlice, type AuthSlice,
-  createUISlice, type UISlice,
-  createPrefsSlice, type PrefsSlice,
-  createInteractionsSlice, type InteractionsSlice
+  createAuthSlice,
+  type AuthSlice,
+  createUISlice,
+  type UISlice,
+  createPrefsSlice,
+  type PrefsSlice,
+  createInteractionsSlice,
+  type InteractionsSlice,
 } from '@couponleaks-ng/store';
 
 export type RootState = {
@@ -19,5 +23,5 @@ export const useStore = makeStore<RootState>((set: any, get: any) => ({
   auth: createAuthSlice(set, get),
   ui: createUISlice(set, get),
   prefs: createPrefsSlice(set, get),
-  interactions: createInteractionsSlice(set, get)
+  interactions: createInteractionsSlice(set, get),
 }));
