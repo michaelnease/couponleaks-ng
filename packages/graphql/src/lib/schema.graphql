@@ -3,10 +3,12 @@ schema {
 }
 
 type Query {
+  # Allow both signed-in users and public users
   getProfile(username: String!): Profile @aws_cognito_user_pools @aws_api_key
 }
 
-type Profile {
+# Make the returned type readable by both auth modes
+type Profile @aws_cognito_user_pools @aws_api_key {
   username: String!
   displayName: String
   bio: String

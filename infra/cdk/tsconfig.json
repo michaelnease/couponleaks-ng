@@ -21,13 +21,13 @@
     "outDir": "dist"
   },
   "include": [
-    "app/**/*.js",
-    "app/**/*.jsx",
-    "app/**/*.ts",
-    "app/**/*.tsx",
-    "next-env.d.ts",
-    ".next/types/**/*.ts",
-    "../../packages/graphql/src/**/*"
+    "bin/**/*.ts",
+    "lib/**/*.ts",
+    "constructs/**/*.ts",
+    "context/**/*.ts",
+    "outputs/**/*.ts",
+    "environments/**/*.ts",
+    "types/**/*.ts"
   ],
   "exclude": [
     "out-tsc",
