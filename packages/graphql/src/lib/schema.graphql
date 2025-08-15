@@ -3,11 +3,11 @@ type Query {
   getProfile(username: String!): Profile @aws_api_key @aws_cognito_user_pools
 }
 
-type Profile @aws_api_key @aws_cognito_user_pools {
-  username: String!
-  displayName: String
-  bio: String
-  website: String
+type Profile {
+  username: String! @aws_api_key @aws_cognito_user_pools
+  displayName: String @aws_api_key @aws_cognito_user_pools
+  bio: String @aws_api_key @aws_cognito_user_pools
+  website: String @aws_api_key @aws_cognito_user_pools
   # Only Cognito can read this
   secret: String @aws_cognito_user_pools
 }

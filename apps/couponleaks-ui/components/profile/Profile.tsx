@@ -1,25 +1,27 @@
 'use client';
 
-import { GET_PROFILE_BY_USERNAME } from '@couponleaks-ng/graphql';
 import { useQuery } from '@apollo/client';
+import { GET_PROFILE_BY_USERNAME } from '@couponleaks-ng/graphql';
 
 export function Profile({ username }: { username: string }) {
+  const isLoggedIn = false; // replace with your real auth state
+
   const { data, loading, error } = useQuery(GET_PROFILE_BY_USERNAME, {
-    variables: { username },
+    variables: { username, isLoggedIn },
+    errorPolicy: 'all', // tolerate field level auth errors if any
+    skip: !username,
   });
 
-  console.log(error);
-
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error loading profile</p>;
+  if (error && !data) return <p>Error loading profile</p>;
 
-  console.log({ data });
-
+  const p = data?.getProfile;
   return (
     <div>
-      <h1>{data.getProfile.displayName}</h1>
-      <p>{data.getProfile.bio}</p>
-      <a href={data.getProfile.website}>{data.getProfile.website}</a>
+      <h1>{p?.displayName}</h1>
+      <p>{p?.bio}</p>
+      <a href={p?.website}>{p?.website}</a>
+      {isLoggedIn && p?.secret && <p>Secret: {p.secret}</p>}
     </div>
   );
 }
