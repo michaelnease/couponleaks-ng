@@ -3,10 +3,11 @@
 
 import { useEffect } from 'react';
 import { useStore } from '@/lib/store';
+import { selectAuthStatus, selectAuthUsername } from '@couponleaks-ng/store';
 
 export default function Page() {
-  const status = useStore((s) => s.auth.status);
-  const username = useStore((s) => s.auth.username);
+  const status = useStore(selectAuthStatus);
+  const username = useStore(selectAuthUsername);
   const refresh = useStore((s) => s.auth.refresh);
 
   // optional: ensure auth state is fresh on mount
