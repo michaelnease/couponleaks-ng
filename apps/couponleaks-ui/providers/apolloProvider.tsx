@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { AmplifyRuntime } from '../components/aws/AmplifyRuntime';
+import { AmplifyRuntime } from '@/components/aws/AmplifyRuntime';
 import { ApolloProvider } from '@apollo/client';
 import { apolloClient } from '@couponleaks-ng/graphql';
 

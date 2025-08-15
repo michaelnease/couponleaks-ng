@@ -13,6 +13,7 @@ const nextConfig = {
       __dirname,
       '../../packages/graphql/src'
     );
+    config.resolve.alias['@'] = path.resolve(__dirname, './');
     return config;
   },
 };
