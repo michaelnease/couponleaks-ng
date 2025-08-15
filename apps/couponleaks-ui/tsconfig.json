@@ -6,31 +6,18 @@
     "emitDeclarationOnly": false,
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
+    "plugins": [{ "name": "next" }],
     "paths": {
-      "@/*": [
-        "./*"
-      ]
+      "@/*": ["./*"],
+      "@couponleaks-ng/graphql": ["../../packages/graphql/src/index.ts"]
     },
-    "types": [
-      "jest",
-      "node"
-    ],
-    "outDir": "dist",
-    "rootDir": "."
+    "types": ["jest", "node"],
+    "outDir": "dist"
   },
   "include": [
     "../../apps/couponleaks-ui/.next/types/**/*.ts",
@@ -39,6 +26,8 @@
     "app/**/*.jsx",
     "app/**/*.ts",
     "app/**/*.tsx",
+    "providers/**/*.ts",
+    "providers/**/*.tsx",
     "next-env.d.ts",
     ".next/types/**/*.ts"
   ],
@@ -53,5 +42,10 @@
     "eslint.config.js",
     "eslint.config.cjs",
     "eslint.config.mjs"
+  ],
+  "references": [
+    {
+      "path": "../../packages/graphql"
+    }
   ]
 }

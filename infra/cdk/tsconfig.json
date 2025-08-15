@@ -1,13 +1,43 @@
 {
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "ES2020",
-    "moduleResolution": "Node",
-    "strict": true,
+    "jsx": "preserve",
+    "noEmit": true,
+    "emitDeclarationOnly": false,
     "esModuleInterop": true,
-    "outDir": "dist",
-    "rootDir": ".",
-    "types": ["node"]
+    "resolveJsonModule": true,
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "incremental": true,
+    "plugins": [{ "name": "next" }],
+    "paths": {
+      "@/*": ["./*"],
+      "@couponleaks-ng/graphql": ["../../packages/graphql/src/index.ts"]
+    },
+    "types": ["jest", "node"],
+    "outDir": "dist"
   },
-  "include": ["bin", "lib", "environments"]
+  "include": [
+    "app/**/*.js",
+    "app/**/*.jsx",
+    "app/**/*.ts",
+    "app/**/*.tsx",
+    "next-env.d.ts",
+    ".next/types/**/*.ts",
+    "../../packages/graphql/src/**/*"
+  ],
+  "exclude": [
+    "out-tsc",
+    "dist",
+    "node_modules",
+    "jest.config.ts",
+    "app/**/*.spec.ts",
+    "app/**/*.test.ts",
+    ".next",
+    "eslint.config.js",
+    "eslint.config.cjs",
+    "eslint.config.mjs"
+  ]
 }

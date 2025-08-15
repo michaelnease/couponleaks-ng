@@ -1,1 +1,2 @@
-export * from './lib/graphql.js';
+export * from './lib/apolloClient.js';
+export * from './lib/queries/profiles.js';
