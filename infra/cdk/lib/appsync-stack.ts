@@ -1,10 +1,4 @@
-import {
-  Stack,
-  StackProps,
-  Duration,
-  Expiration,
-  CfnOutput,
-} from 'aws-cdk-lib';
+import { Stack, StackProps, CfnOutput, Duration } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import * as appsync from 'aws-cdk-lib/aws-appsync';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
@@ -12,20 +6,18 @@ import * as cognito from 'aws-cdk-lib/aws-cognito';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
 
-// Recreate __dirname in ESM
+// __dirname in ESM
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+type AppSyncProps = StackProps & {
+  cfg: { name: string };
+  functions: { profiles: lambda.Function };
+  userPool: cognito.IUserPool;
+};
+
 export class AppSyncStack extends Stack {
-  constructor(
-    scope: Construct,
-    id: string,
-    props: StackProps & {
-      cfg: any;
-      functions: { profiles: lambda.Function };
-      userPool: cognito.IUserPool;
-    }
-  ) {
+  constructor(scope: Construct, id: string, props: AppSyncProps) {
     super(scope, id, props);
 
     const schemaFsPath = path.join(
@@ -37,24 +29,33 @@ export class AppSyncStack extends Stack {
       name: `couponleaks-${props.cfg.name}`,
       schema: appsync.SchemaFile.fromAsset(schemaFsPath),
       authorizationConfig: {
+        // safer default: Cognito
         defaultAuthorization: {
-          authorizationType: appsync.AuthorizationType.API_KEY,
-          apiKeyConfig: {
-            expires: Expiration.after(Duration.days(365)),
-          },
+          authorizationType: appsync.AuthorizationType.USER_POOL,
+          userPoolConfig: { userPool: props.userPool },
         },
+        // allow unauth reads where your schema permits with @aws_api_key
         additionalAuthorizationModes: [
-          {
-            authorizationType: appsync.AuthorizationType.USER_POOL,
-            userPoolConfig: {
-              userPool: props.userPool,
-            },
-          },
+          { authorizationType: appsync.AuthorizationType.API_KEY },
         ],
       },
       xrayEnabled: true,
+      logConfig: { fieldLogLevel: appsync.FieldLogLevel.ERROR },
     });
 
+    // Create an API key (since apiKeyConfig prop no longer exists)
+    // Expiry is epoch seconds, rounded to the hour
+    const oneYearInSeconds = Math.floor(Duration.days(365).toSeconds());
+    const nowSeconds = Math.floor(Date.now() / 1000);
+    const expires = nowSeconds + oneYearInSeconds;
+
+    const apiKey = new appsync.CfnApiKey(this, 'DefaultApiKey', {
+      apiId: api.apiId,
+      expires, // optional; omit to use service default
+      description: `couponleaks ${props.cfg.name} public key`,
+    });
+
+    // Data source and resolver
     const profilesDS = api.addLambdaDataSource(
       'ProfilesDS',
       props.functions.profiles
@@ -65,8 +66,9 @@ export class AppSyncStack extends Stack {
       fieldName: 'getProfile',
     });
 
+    // Outputs
     new CfnOutput(this, 'GraphqlUrl', { value: api.graphqlUrl });
     new CfnOutput(this, 'ApiId', { value: api.apiId });
-    new CfnOutput(this, 'ApiKey', { value: api.apiKey ?? '' });
+    new CfnOutput(this, 'ApiKey', { value: apiKey.attrApiKey });
   }
 }

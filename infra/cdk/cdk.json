@@ -1,5 +1,5 @@
 {
-  "app": "node --loader ts-node/esm bin/couponleaks.ts",
+  "app": "npx tsx bin/couponleaks.ts",
   "context": {
     "@aws-cdk/core:newStyleStackSynthesis": true
   }

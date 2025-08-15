@@ -3,8 +3,7 @@ schema {
 }
 
 type Query {
-  # Returns a profile by username; nullable when not found
-  getProfile(username: String!): Profile @aws_api_key @aws_cognito_user_pools
+  getProfile(username: String!): Profile @aws_cognito_user_pools @aws_api_key
 }
 
 type Profile {
