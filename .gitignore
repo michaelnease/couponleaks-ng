@@ -82,3 +82,9 @@ cypress/screenshots/
 # ----------------------------------
 .DS_Store
 Thumbs.db
+
+# ----------------------------------
+# AWS CDK output
+# ----------------------------------
+cdk.out/
+infra/cdk/cdk.out/
