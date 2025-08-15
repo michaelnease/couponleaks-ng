@@ -16,7 +16,8 @@
     "paths": {
       "@/*": ["./*"],
       "@couponleaks-ng/graphql": ["../../packages/graphql/src/index.ts"],
-      "@couponleaks-ng/aws": ["../../packages/aws/src/index.ts"]
+      "@couponleaks-ng/aws": ["../../packages/aws/src/index.ts"],
+      "@couponleaks-ng/store": ["../../packages/store/src/index.ts"]
     },
     "types": ["jest", "node"],
     "outDir": "dist"
@@ -32,6 +33,8 @@
     "providers/**/*.tsx",
     "components/**/*.ts",
     "components/**/*.tsx",
+    "lib/**/*.ts",
+    "lib/**/*.tsx",
     "next-env.d.ts",
     ".next/types/**/*.ts"
   ],
@@ -48,6 +51,9 @@
     "eslint.config.mjs"
   ],
   "references": [
+    {
+      "path": "../../packages/store"
+    },
     {
       "path": "../../packages/graphql"
     },

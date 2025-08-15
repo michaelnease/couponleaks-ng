@@ -16,6 +16,8 @@
     }
   },
   "dependencies": {
+    "@apollo/client": "^3.13.9",
+    "aws-amplify": "^6.15.5",
     "tslib": "^2.3.0"
   }
 }

@@ -32,6 +32,9 @@
     },
     {
       "path": "./packages/aws"
+    },
+    {
+      "path": "./packages/store"
     }
   ]
 }

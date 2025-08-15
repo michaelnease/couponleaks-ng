@@ -20,7 +20,8 @@
     "baseUrl": ".",
     "paths": {
       "@couponleaks-ng/aws": ["packages/aws/src/index.ts"],
-      "@couponleaks-ng/graphql": ["packages/graphql/src/index.ts"]
+      "@couponleaks-ng/graphql": ["packages/graphql/src/index.ts"],
+      "@couponleaks-ng/store": ["packages/store/src/index.ts"]
     }
   }
 }
