@@ -1,6 +1,8 @@
 import { AmplifyRuntime } from '@/components/aws/AmplifyRuntime';
 import Providers from '@/providers';
 import { Header } from '@/components/header';
+import AuthBootstrap from '@/components/AuthBootstrap';
+import AuthLoading from '@/components/AuthLoading';
 import './global.css';
 
 export const metadata = {
@@ -18,6 +20,8 @@ export default function RootLayout({
       <body>
         <AmplifyRuntime />
         <Providers>
+          <AuthBootstrap />
+          <AuthLoading />
           <Header />
           {children}
         </Providers>
