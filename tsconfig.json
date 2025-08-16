@@ -35,6 +35,9 @@
     },
     {
       "path": "./packages/store"
+    },
+    {
+      "path": "./packages/types"
     }
   ]
 }

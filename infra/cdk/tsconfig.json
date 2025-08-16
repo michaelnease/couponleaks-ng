@@ -16,7 +16,8 @@
       "@/*": ["./*"],
       "@couponleaks-ng/graphql": ["../../packages/graphql/src/index.ts"],
       "@couponleaks-ng/aws": ["../../packages/aws/src/index.ts"],
-      "@couponleaks-ng/store": ["../../packages/aws/src/index.ts"]
+      "@couponleaks-ng/store": ["../../packages/aws/src/index.ts"],
+      "@couponleaks-ng/type": ["../../packages/types/src/index.ts"]
     },
     "types": ["jest", "node"],
     "outDir": "dist"
