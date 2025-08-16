@@ -1,16 +1,38 @@
-import { Avatar, Menu, Portal, Button } from '@chakra-ui/react';
+'use client';
+
+import { Avatar, Button, Menu, Portal } from '@chakra-ui/react';
 import { LuCircleHelp, LuLogOut, LuSettings, LuUser } from 'react-icons/lu';
+import Link from 'next/link';
 import { useAuth } from '@/hooks/useAuth';
 
 export const UserMenu = () => {
-  const { logout } = useAuth();
+  const { isSignedOut } = useAuth();
 
   const handleLogout = async () => {
-    await logout();
-    // Redirect to home page after logout
-    window.location.href = '/';
+    const { signOut } = await import('aws-amplify/auth');
+    await signOut();
+    window.location.href = '/'; // redirect after logout
   };
 
+  // Show sign-up/login buttons when not signed in
+  if (isSignedOut) {
+    return (
+      <div style={{ display: 'flex', gap: '8px' }}>
+        <Link href="/login">
+          <Button variant="ghost" size="sm">
+            Sign In
+          </Button>
+        </Link>
+        <Link href="/signup">
+          <Button variant="solid" size="sm">
+            Sign Up
+          </Button>
+        </Link>
+      </div>
+    );
+  }
+
+  // Show user menu when signed in
   return (
     <Menu.Root positioning={{ placement: 'bottom' }}>
       <Menu.Trigger rounded="full">

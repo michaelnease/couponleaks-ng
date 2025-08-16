@@ -3,16 +3,18 @@
 import { useEffect } from 'react';
 import { Hub } from 'aws-amplify/utils';
 import { useAuth } from '@/hooks/useAuth';
-import { AmplifyRuntime } from '@/components/aws/AmplifyRuntime';
 
 export default function AuthBootstrap() {
-  const { refresh } = useAuth();
+  const { status, refresh } = useAuth();
 
   useEffect(() => {
     let mounted = true;
-    (async () => {
-      await refresh();
-    })();
+
+    if (status === 'unknown') {
+      (async () => {
+        await refresh();
+      })();
+    }
 
     const unsub = Hub.listen('auth', async () => {
       if (!mounted) return;
@@ -23,8 +25,8 @@ export default function AuthBootstrap() {
       mounted = false;
       unsub();
     };
-  }, [refresh]);
+  }, [refresh, status]);
 
-  // Ensure Amplify is configured once for the client
-  return <AmplifyRuntime />;
+  // No UI, just bootstrap the auth state
+  return null;
 }

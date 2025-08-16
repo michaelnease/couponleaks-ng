@@ -1,7 +1,6 @@
 // apps/couponleaks-ui/app/page.tsx
 'use client';
 
-import { useEffect } from 'react';
 import Link from 'next/link';
 import { Box, Button, Heading, Text, VStack } from '@chakra-ui/react';
 import { useAuth } from '@/hooks/useAuth';
@@ -9,11 +8,6 @@ import { useAuth } from '@/hooks/useAuth';
 export default function Page() {
   const { status, isSignedIn, isSignedOut, isRefreshing, username, refresh } =
     useAuth();
-
-  // optional: ensure auth state is fresh on mount
-  useEffect(() => {
-    void refresh();
-  }, [refresh]);
 
   return (
     <Box p={8}>

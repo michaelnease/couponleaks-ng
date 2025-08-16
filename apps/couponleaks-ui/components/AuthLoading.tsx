@@ -4,9 +4,10 @@ import { Box, Spinner, Text, VStack } from '@chakra-ui/react';
 import { useAuth } from '@/hooks/useAuth';
 
 export default function AuthLoading() {
-  const { isRefreshing } = useAuth();
+  const { status, isRefreshing } = useAuth();
 
-  if (!isRefreshing) {
+  // Show loading for both "unknown" (initial state) and "refreshing" states
+  if (status !== 'unknown' && !isRefreshing) {
     return null;
   }
 
@@ -17,7 +18,7 @@ export default function AuthLoading() {
       left="0"
       right="0"
       bottom="0"
-      bg="rgba(0, 0, 0, 0.5)"
+      bg="rgba(255, 255, 255, 0.95)"
       display="flex"
       alignItems="center"
       justifyContent="center"
@@ -26,7 +27,7 @@ export default function AuthLoading() {
       <VStack gap={4}>
         <Spinner size="xl" color="blue.500" />
         <Text color="white" fontSize="lg">
-          Checking authentication...
+          {status === 'unknown' ? 'Loading...' : 'Checking authentication...'}
         </Text>
       </VStack>
     </Box>

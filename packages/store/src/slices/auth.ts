@@ -12,10 +12,6 @@ export type AuthSlice = {
    * No hard dep here. Falls back to signed-out if not available.
    */
   refresh: () => Promise<void>;
-  /**
-   * Signs out the user using AWS Amplify and updates the store state.
-   */
-  logout: () => Promise<void>;
 };
 
 export const createAuthSlice = (set: any, get: any): AuthSlice => ({
@@ -23,14 +19,18 @@ export const createAuthSlice = (set: any, get: any): AuthSlice => ({
   username: null,
   setStatus: (status) => set((s: any) => ({ auth: { ...s.auth, status } })),
   setUser: (username) => set((s: any) => ({ auth: { ...s.auth, username } })),
+
   refresh: async () => {
     // Set status to refreshing while checking auth state
-    set((s: any) => ({ auth: { ...s.auth, status: 'refreshing' } }));
+    set((s: any) => ({
+      auth: { ...s.auth, status: 'refreshing' },
+    }));
 
     try {
       const mod: any = await import('aws-amplify/auth');
       const session = await mod.fetchAuthSession();
       const idToken = session?.tokens?.idToken?.toString();
+
       if (idToken) {
         const user = await mod.getCurrentUser().catch(() => null);
         set((s: any) => ({
@@ -45,21 +45,9 @@ export const createAuthSlice = (set: any, get: any): AuthSlice => ({
     } catch {
       // ignore
     }
+
     set((s: any) => ({
       auth: { ...s.auth, status: 'signed-out', username: null },
     }));
-  },
-  logout: async () => {
-    try {
-      const mod: any = await import('aws-amplify/auth');
-      await mod.signOut();
-    } catch {
-      // ignore errors during logout
-    } finally {
-      // Always update state to signed-out
-      set((s: any) => ({
-        auth: { ...s.auth, status: 'signed-out', username: null },
-      }));
-    }
   },
 });
