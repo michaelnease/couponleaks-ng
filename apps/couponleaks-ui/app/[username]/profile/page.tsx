@@ -16,7 +16,7 @@ type FormState = {
 };
 
 export default function AccountPage() {
-  const [username, setUsername] = useState<string | null>(null);
+  const [username, setUsername] = useState<string | null>('michaelnease');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [form, setForm] = useState<FormState>({
     displayName: '',
@@ -47,6 +47,8 @@ export default function AccountPage() {
     skip: !username,
     fetchPolicy: 'cache-and-network',
   });
+
+  console.log(error);
 
   // Seed the form from fetched profile
   useEffect(() => {

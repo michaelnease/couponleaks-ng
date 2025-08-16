@@ -1,6 +1,15 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
 type Query {
-  # Both API key and Cognito can call this
   getProfile(username: String!): Profile @aws_api_key @aws_cognito_user_pools
+}
+
+type Mutation {
+  updateProfile(username: String!, input: UpdateProfileInput!): Profile!
+    @aws_cognito_user_pools
 }
 
 type Profile {
@@ -8,6 +17,17 @@ type Profile {
   displayName: String @aws_api_key @aws_cognito_user_pools
   bio: String @aws_api_key @aws_cognito_user_pools
   website: String @aws_api_key @aws_cognito_user_pools
-  # Only Cognito can read this
+  avatarUrl: String @aws_api_key @aws_cognito_user_pools
+  isFeaturedKey: String @aws_api_key @aws_cognito_user_pools
+  createdAt: AWSDateTime @aws_api_key @aws_cognito_user_pools
+  updatedAt: AWSDateTime @aws_api_key @aws_cognito_user_pools
   secret: String @aws_cognito_user_pools
+}
+
+input UpdateProfileInput {
+  displayName: String
+  bio: String
+  website: String
+  avatarUrl: String
+  isFeaturedKey: String
 }
